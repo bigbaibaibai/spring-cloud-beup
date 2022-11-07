@@ -1,18 +1,14 @@
 package cc.beup.starter.web.config;
 
-import cc.beup.starter.web.aop.WebLogAop;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
 public class BeupWebAutoConfiguration {
 
+    @ConditionalOnMissingBean(BeupWebConfig.class)
     @Bean
     public BeupWebConfig beupWebConfig() {
         return new BeupWebConfig();
-    }
-
-    @Bean
-    public WebLogAop webLogAop() {
-        return new WebLogAop();
     }
 
 }
